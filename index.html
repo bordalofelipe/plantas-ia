@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.0"> </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #classificationOutput {
+            margin-top: 20px;
+        }
+        button {
+            background-color: #1e70c0;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            width: 25%;
+            border-radius: 6px;
+            box-sizing: border-box;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        input[type="file"] {
+            appearance: none;
+            background-color: #1e70c0;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            width: 70%;
+            border-radius: 6px;
+            box-sizing: border-box;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    </style>
+    <title>Classificação de Imagem</title>
+</head>
+<body>
+    <h1>Classificação de Imagem</h1>
+    
+    <!-- Image Input Element -->
+    <label for="imageInput">Selecione uma imagem:</label>
+    <br>
+    <div style="width: 100%;">
+        <input type="file" id="imageInput" accept="image/*">
+        <button id="classify">Classificar Imagem</button>
+    </div>
+    
+    <!-- Image Classification Output Element -->
+    <div id="classificationOutput">
+        <h2>Resultado da Classificação:</h2>
+        <p id="resultText"></p>
+    </div>
+</body>
+</html>
