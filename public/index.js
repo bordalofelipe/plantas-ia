@@ -38,6 +38,15 @@ async function classifyImage(imageElement) {
 
 // Event listener para o input de arquivo
 onload = function() {
+    // Registrar Service Worker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js').then((registration) => {
+            console.log('Service Worker registrado com sucesso:', registration);
+        }).catch((error) => {
+            console.log('Erro ao registrar Service Worker:', error);
+        });
+    }
+
     document.getElementById('classify').addEventListener('click', function() {
         const file = document.getElementById('imageInput').files[0];
         if (file) {
