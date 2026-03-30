@@ -1,2 +1,4 @@
 tensorflow
 tensorflowjs
+pandas
+duckdb
