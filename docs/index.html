@@ -6,56 +6,159 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#1e70c0">
     <link rel="manifest" href="manifest.webmanifest">
+    <script src="plant.js"></script>
+    <script src="leaf.js"></script>
     <script src="index.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
         }
-        #classificationOutput {
-            margin-top: 20px;
-        }
         button {
             background-color: #1e70c0;
             color: white;
             border: none;
             padding: 10px 20px;
-            width: 25%;
+            width: 100%;
             border-radius: 6px;
             box-sizing: border-box;
             display: inline-block;
             vertical-align: middle;
         }
-        input[type="file"] {
+        .container {
+            width: 50%;
+            border: 1px solid #e0e0e0;
+            margin: auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        .container h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        #classifyPlant, #classifyLeaf {
+            margin-top: 10px;
+        }
+        #removePlant, #removeLeaf {
+            margin-top: 10px;
+            background-color: #c01e1e;
+        }
+        #previewPlant, #previewLeaf {
+            max-width: 100%;
+            max-height: 300px;
+            display: block;
+            margin: 10px auto;
+            border-radius: 6px;
+        }
+        #dropzonePlant, #dropzoneLeaf {
             appearance: none;
-            background-color: #1e70c0;
+            background-color: #1e70c06f;
             color: white;
-            border: none;
-            padding: 10px 20px;
-            width: 70%;
+            border: 2px dashed #1e70c0;
+            padding: 60px 20px;
+            text-align: center;
+            width: 100%;
             border-radius: 6px;
             box-sizing: border-box;
             display: inline-block;
             vertical-align: middle;
+            transition: background-color .2s ease, border-color .2s ease;
+        }
+        #dropzonePlant.dragover, #dropzoneLeaf.dragover {
+            background-color: #1a5f9a;
+            border-color: #d4e4ff;
+        }
+        #dropzonePlant p, #dropzoneLeaf p {
+            margin: 0;
+        }
+        #imageInputPlant, #imageInputLeaf {
+            display: none;
+        }
+        #loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            display: flex;
+        }
+        #loading .modal-content {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            color: #1e70c0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            margin: 10px auto;
+            max-width: 300px;
+            width: 90%;
+        }
+        #loading .spinner {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 20px;
+            border: 5px solid rgba(30, 112, 192, 0.3);
+            border-top-color: #1e70c0;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+            }
         }
     </style>
-    <title>Classificação de Imagem</title>
+    <title>Plantas IA</title>
 </head>
 <body>
-    <h1>Classificação de Imagem</h1>
+    <h1 style="text-align: center;">Plantas IA</h1>
     
-    <!-- Image Input Element -->
-    <label for="imageInput">Selecione uma imagem:</label>
-    <br>
-    <div style="width: 100%;">
-        <input type="file" id="imageInput" accept="image/*">
-        <button id="classify">Classificar Imagem</button>
+    <div id="plantInput" class="container">
+        <h2>Classificação de Planta</h2>
+        <img src="" id="previewPlant" alt="Pré-visualização da Imagem da Planta" style="display: none;">
+        <div id="dropzonePlant" tabindex="0">
+            <p>Arraste e solte uma imagem da planta aqui ou clique para selecionar.</p>
+            <input type="file" id="imageInputPlant" accept="image/*">
+        </div>
+        <button id="removePlant" style="display: none">Remover Imagem</button>
+        <button id="classifyPlant">Classificar Planta</button>
+    </div>
+
+    <div id="leafInput" class="container" style="display: none;">
+        <h2>Classificação de Folha</h2>
+        <p>Não foi possível reconhecer a doença apenas com a imagem da planta. Carregue uma imagem da folha para obter uma análise mais precisa.</p>
+        <img src="" id="previewLeaf" alt="Pré-visualização da Imagem da Folha" style="display: none;">
+        <div id="dropzoneLeaf" tabindex="0">
+            <p>Arraste e solte uma imagem da folha aqui ou clique para selecionar.</p>
+            <input type="file" id="imageInputLeaf" accept="image/*">
+        </div>
+        <button id="removeLeaf" style="display: none">Remover Imagem</button>
+        <button id="classifyLeaf">Classificar Folha</button>
     </div>
     
-    <!-- Image Classification Output Element -->
-    <div id="classificationOutput">
+    <div id="classificationOutput" class="container">
         <h2>Resultado da Classificação:</h2>
-        <p id="resultText"></p>
+        <!-- Image Classification Output Element -->
+        <p id="speciesResultText"></p>
+        <p id="diseaseResultText"></p>
+    </div>
+
+    <div id="loading">
+        <div class="modal-content">
+            <div class="spinner"></div>
+            <h2 id="loadingTitle">Carregando Modelo...</h2>
+            <p id="loadingText">Carregando modelo, por favor aguarde...</p>
+        </div>
     </div>
 </body>
 </html>
