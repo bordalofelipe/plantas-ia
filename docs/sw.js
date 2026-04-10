@@ -1,10 +1,10 @@
 // Service Worker para Plantas IA
 const CACHE_NAME = 'plantas-ia-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/index.js',
-  '/manifest.webmanifest'
+  '/plantas-ia/',
+  '/plantas-ia/index.html',
+  '/plantas-ia/index.js',
+  '/plantas-ia/manifest.webmanifest'
 ];
 
 // Instalação do Service Worker
