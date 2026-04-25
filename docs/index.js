@@ -76,17 +76,6 @@ function handleFileUpload(file, type) {
     setSelectedFile(file, type);
 }
 
-async function loadLabels() {
-    try {
-        const r = await fetch('model/class_idx_2_name.txt');
-        labels = (await r.text()).trim().split(/\r?\n/);
-    }
-    catch (error) {
-        console.error('Erro ao carregar as labels:', error);
-        alert('Erro ao carregar as labels.');
-    }
-}
-
 function topK(array, k=5){
     return array
         .map((v,i)=>({i,v}))
@@ -105,13 +94,11 @@ onload = async function() {
         });
     }
 
-    // Carregar ambos os modelos simultaneamente
+    // Carregar ambos os modelos sequencialmente
     showLoading('Carregando Modelos...', 'Carregando modelos especializados para plantas e folhas...');
     try {
-        await Promise.all([
-            loadPlantModel(),
-            loadLeafModel()
-        ]);
+        await loadPlantModel();
+        await loadLeafModel();
         console.log('Ambos os modelos carregados com sucesso!');
     } catch (error) {
         console.error('Erro ao carregar modelos:', error);

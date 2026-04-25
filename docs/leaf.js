@@ -18,7 +18,7 @@ function onloadLeaf() {
                 classifyLeafImage(img);
             };
             img.onerror = function() {
-                document.getElementById('resultText').textContent = 'Erro ao carregar a imagem da folha.';
+                document.getElementById('diseaseResultText').textContent = 'Erro ao carregar a imagem da folha.';
                 hideLoading();
             };
 
@@ -34,18 +34,50 @@ function onloadLeaf() {
 
 async function loadLeafModel() {
     try {
-        leafModel = await tf.loadGraphModel('model/model.json');
-        // Alternativa: leafModel = await tf.loadGraphModel('model/leaf_model.json');
-        console.log('Modelo de folhas carregado com sucesso!');
+        leafModel = await ort.InferenceSession.create('leaf-modelo-embedded.onnx');
+        console.log('Modelo de folhas ONNX embarcado carregado com sucesso!');
     } catch (error) {
-        console.error('Erro ao carregar modelo de folhas:', error);
-        throw error; // Re-throw para que o chamador possa lidar
+        console.error('Erro ao carregar modelo de folhas ONNX:', error);
+        throw error;
     }
+}
+
+function preprocessImageToTensorData(imageElement, width = 224, height = 224) {
+    const canvas = document.createElement('canvas');
+    canvas.width = width;
+    canvas.height = height;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(imageElement, 0, 0, width, height);
+    const imageData = ctx.getImageData(0, 0, width, height).data;
+    const data = new Float32Array(3 * width * height);
+    const hw = width * height;
+
+    for (let y = 0; y < height; y++) {
+        for (let x = 0; x < width; x++) {
+            const px = (y * width + x) * 4;
+            const r = imageData[px] / 255.0;
+            const g = imageData[px + 1] / 255.0;
+            const b = imageData[px + 2] / 255.0;
+            const idx = y * width + x;
+            data[idx] = r;
+            data[hw + idx] = g;
+            data[2 * hw + idx] = b;
+        }
+    }
+
+    return data;
+}
+
+function softmax(array) {
+    const max = Math.max(...array);
+    const exps = array.map((value) => Math.exp(value - max));
+    const sum = exps.reduce((acc, value) => acc + value, 0);
+    return exps.map((value) => value / sum);
 }
 
 async function loadLeafLabels() {
     try {
-        const r = await fetch('model/class_idx_2_name.txt');
+        const r = await fetch('class_idx_2_name.txt');
         leafLabels = (await r.text()).trim().split(/\r?\n/);
     }
     catch (error) {
@@ -57,46 +89,25 @@ async function loadLeafLabels() {
 async function classifyLeafImage(imageElement) {
     showLoading('Classificando Folha...', 'Aguarde enquanto o modelo especializado processa a imagem da folha.');
     try {
-	// Preprocess: fromPixels -> resize -> normalize -> transpose to channels-first -> batch
+        const inputTensorData = preprocessImageToTensorData(imageElement, 224, 224);
+        const inputTensor = new ort.Tensor('float32', inputTensorData, [1, 3, 224, 224]);
+
         console.log('Classificando folha - step0');
-        let t = tf.browser.fromPixels(imageElement).toFloat(); // [H,W,3]
+        const outputMap = await leafModel.run({ input: inputTensor });
         console.log('step1');
-        t = tf.image.resizeBilinear(t, [224,224]);     // [224,224,3]
-        // Ajuste normalização conforme seu treino:
-        // Usar [0,1]:
+        const outputTensor = outputMap.output || outputMap[Object.keys(outputMap)[0]];
+        const jsArr = Array.from(outputTensor.data);
         console.log('step2');
-        t = t.div(255.0);
-
-        // transpose to [3,224,224]
+        const probsArr = softmax(jsArr);
         console.log('step3');
-        t = tf.transpose(t, [2,0,1]);
+        const top = topK(probsArr, 5);
         console.log('step4');
-        t = t.expandDims(0); // [1,3,224,224]
-
-        // Execute usando nomes do model.json
-        console.log('step5');
-        const outputs = await leafModel.executeAsync({'input:0': t}, ['Identity:0']);
-        console.log('step6');
-        const logits = Array.isArray(outputs) ? outputs[0] : outputs;
-        console.log('step7');
-        const probs = tf.softmax(logits);
-        console.log('step8');
-        const arr = await probs.data(); // flat Float32Array length 1081
-        console.log('step9');
-        // convert to JS array
-        const jsArr = Array.from(arr);
-        console.log('stepA');
-        // get top-5
-        const top = topK(jsArr, 5);
-        console.log('stepB');
-        // map to labels (guard)
         const predictions = top.map(({i,v}) => ({
             index: i,
             score: v,
             label: leafLabels && leafLabels[i] ? leafLabels[i] : String(i)
         }));
-        console.log('stepC');
-        tf.dispose([t, outputs, logits, probs]);
+        console.log('step5');
 
         // Exibir o resultado da folha específica
         const topPrediction = predictions[0];
@@ -116,7 +127,7 @@ async function classifyLeafImage(imageElement) {
 
     } catch(error) {
         console.error('Erro na classificação da folha:', error);
-        document.getElementById('resultText').textContent = 'Erro na classificação da imagem da folha.';
+        document.getElementById('diseaseResultText').textContent = 'Erro na classificação da imagem da folha.';
     } finally {
         hideLoading();
     }

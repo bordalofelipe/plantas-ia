@@ -4,7 +4,13 @@ const urlsToCache = [
   '/plantas-ia/',
   '/plantas-ia/index.html',
   '/plantas-ia/index.js',
-  '/plantas-ia/manifest.webmanifest'
+  '/plantas-ia/plant.js',
+  '/plantas-ia/leaf.js',
+  '/plantas-ia/manifest.webmanifest',
+  '/plantas-ia/leaf-modelo-embedded.onnx',
+  '/plantas-ia/plant-modelo-embedded.onnx',
+  '/plantas-ia/class_idx_2_name.txt',
+  '/plantas-ia/styles.css',
 ];
 
 // Instalação do Service Worker
