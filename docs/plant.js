@@ -79,8 +79,8 @@ function softmax(array) {
 
 async function loadPlantLabels() {
     try {
-        const r = await fetch('class_idx_2_name.txt');
-        plantLabels = (await r.text()).trim().split(/\r?\n/);
+        const r = await fetch('species-categories.json');
+        plantLabels = await r.json();
     }
     catch (error) {
         console.error('Erro ao carregar as labels de plantas:', error);
@@ -93,10 +93,10 @@ async function classifyPlantImage(imageElement) {
     showLoading('Classificando...', 'Aguarde enquanto o modelo processa a imagem da planta e folha.');
     try {
         const inputTensorData = preprocessImageToTensorData(imageElement, 224, 224);
-        const inputTensor = new ort.Tensor('float32', inputTensorData, [1, 3, 224, 224]);
+        const inputTensor = new ort.Tensor('float32', inputTensorData, [1, 224, 224, 3]);
 
         console.log('step0');
-        const outputMap = await plantModel.run({ input: inputTensor });
+        const outputMap = await plantModel.run( {'args_0:0': inputTensor}); // { input: inputTensor });
         console.log('step1');
         const outputTensor = outputMap.output || outputMap[Object.keys(outputMap)[0]];
         const jsArr = Array.from(outputTensor.data);

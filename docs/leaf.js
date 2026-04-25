@@ -30,6 +30,7 @@ function onloadLeaf() {
             reader.readAsDataURL(file);
         }
     });
+    loadLeafLabels();
 }
 
 async function loadLeafModel() {
@@ -77,8 +78,8 @@ function softmax(array) {
 
 async function loadLeafLabels() {
     try {
-        const r = await fetch('class_idx_2_name.txt');
-        leafLabels = (await r.text()).trim().split(/\r?\n/);
+        const r = await fetch('diseases-categories.json');
+        leafLabels = await r.json();
     }
     catch (error) {
         console.error('Erro ao carregar as labels de folhas:', error);
@@ -90,10 +91,10 @@ async function classifyLeafImage(imageElement) {
     showLoading('Classificando Folha...', 'Aguarde enquanto o modelo especializado processa a imagem da folha.');
     try {
         const inputTensorData = preprocessImageToTensorData(imageElement, 224, 224);
-        const inputTensor = new ort.Tensor('float32', inputTensorData, [1, 3, 224, 224]);
+        const inputTensor = new ort.Tensor('float32', inputTensorData, [1, 224, 224, 3]);
 
         console.log('Classificando folha - step0');
-        const outputMap = await leafModel.run({ input: inputTensor });
+        const outputMap = await leafModel.run({'args_0:0': inputTensor});//{ input: inputTensor });
         console.log('step1');
         const outputTensor = outputMap.output || outputMap[Object.keys(outputMap)[0]];
         const jsArr = Array.from(outputTensor.data);
