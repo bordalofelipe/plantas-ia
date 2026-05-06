@@ -7,9 +7,10 @@ const urlsToCache = [
   '/plantas-ia/plant.js',
   '/plantas-ia/leaf.js',
   '/plantas-ia/manifest.webmanifest',
-  '/plantas-ia/leaf-modelo-embedded.onnx',
-  '/plantas-ia/plant-modelo-embedded.onnx',
-  '/plantas-ia/class_idx_2_name.txt',
+  '/plantas-ia/plant-species.onnx',
+  '/plantas-ia/plant-disease.onnx',
+  '/plantas-ia/species-categories.json',
+  '/plantas-ia/diseases-categories.json',
   '/plantas-ia/styles.css',
 ];
 
