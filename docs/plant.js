@@ -10,6 +10,7 @@ function onloadPlant() {
     document.getElementById('removePlant').addEventListener('click', removeFile.bind(null, 'plant'));
 
     document.getElementById('classifyPlant').addEventListener('click', function() {
+        showLoading('Classificando...', 'Aguarde enquanto o modelo processa a imagem da planta e folha.');
         const file = selectedPlantFile;
         if (file) {
             // Criar um elemento de imagem para processar
@@ -17,6 +18,7 @@ function onloadPlant() {
             img.onload = async function() {
                 await classifyPlantImage(img);
                 await classifyLeafImage(img); // Classificar também como folha para comparação
+                hideLoading();
             };
             img.onerror = function() {
                 document.getElementById('speciesResultText').textContent = 'Erro ao carregar a imagem.';
@@ -29,6 +31,9 @@ function onloadPlant() {
                 img.src = e.target.result;
             };
             reader.readAsDataURL(file);
+        }
+        else {
+            hideLoading();
         }
     });
     loadPlantLabels();

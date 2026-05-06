@@ -10,12 +10,14 @@ function onloadLeaf() {
     document.getElementById('removeLeaf').addEventListener('click', removeFile.bind(null, 'leaf'));
 
     document.getElementById('classifyLeaf').addEventListener('click', function() {
+        showLoading('Classificando...', 'Aguarde enquanto o modelo processa a imagem da folha.');
         const file = selectedLeafFile;
         if (file) {
             // Criar um elemento de imagem para processar
             const img = new Image();
             img.onload = function() {
                 classifyLeafImage(img);
+                hideLoading();
             };
             img.onerror = function() {
                 document.getElementById('diseaseResultText').textContent = 'Erro ao carregar a imagem da folha.';
@@ -28,6 +30,9 @@ function onloadLeaf() {
                 img.src = e.target.result;
             };
             reader.readAsDataURL(file);
+        }
+        else {
+            hideLoading();
         }
     });
     loadLeafLabels();
