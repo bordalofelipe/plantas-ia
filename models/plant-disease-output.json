@@ -1,0 +1,1 @@
+{"Dataset size": 52245, "Classes": 29, "training": 41796, "validation": 10449, "device": "cuda", "avg_loss": 0.15170286882321837, "accuracy": 0.96631256579577}
