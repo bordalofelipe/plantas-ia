@@ -123,8 +123,7 @@ async function classifyLeafImage(imageElement) {
         // Exibir o resultado da folha específica
         const topPrediction = predictions[0];
         if (topPrediction.score < 0.5) {
-            document.getElementById('diseaseResultText').textContent = 'Nenhuma doença detectada com alta confiança. Por favor, tente outra imagem de folha.';
-            document.getElementById('leafInput').style.display = 'block';
+            document.getElementById('diseaseResultText').textContent = 'Nenhuma doença detectada. Provavelmente a planta está saudável.';
         } else {
             document.getElementById('diseaseResultText').textContent =
                 `Doença: ${topPrediction.label} (Confiança: ${(topPrediction.score * 100).toFixed(2)}%)`;

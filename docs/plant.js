@@ -17,7 +17,6 @@ function onloadPlant() {
             const img = new Image();
             img.onload = async function() {
                 await classifyPlantImage(img);
-                await classifyLeafImage(img); // Classificar também como folha para comparação
                 hideLoading();
             };
             img.onerror = function() {
@@ -99,7 +98,6 @@ async function loadPlantLabels() {
 }
 
 async function classifyPlantImage(imageElement) {
-    document.getElementById('leafInput').style.display = 'none'; // Esconder input de folha inicialmente
     showLoading('Classificando...', 'Aguarde enquanto o modelo processa a imagem da planta e folha.');
     try {
         const inputTensorData = preprocessPlantImageToTensorData(imageElement, 224, 224);
@@ -126,7 +124,7 @@ async function classifyPlantImage(imageElement) {
         const plantPrediction = predictions[0];
 
         // Exibir resultados
-        let resultText = `Planta - Classe: ${plantPrediction.label} (Confiança: ${(plantPrediction.score * 100).toFixed(2)}%)\n`;
+        let resultText = `Planta: ${plantPrediction.label} (Confiança: ${(plantPrediction.score * 100).toFixed(2)}%)\n`;
 
         document.getElementById('speciesResultText').textContent = resultText;
 

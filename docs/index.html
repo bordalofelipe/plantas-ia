@@ -134,22 +134,27 @@
         <button id="classifyPlant">Classificar Planta</button>
     </div>
 
-    <div id="leafInput" class="container" style="display: none;">
-        <h2>Classificação de Folha</h2>
-        <p>Não foi possível reconhecer a doença apenas com a imagem da planta. Carregue uma imagem da folha para obter uma análise mais precisa.</p>
+    <div id="speciesOutput" class="container">
+        <h2>Resultado da Classificação:</h2>
+        <!-- Image Classification Output Element -->
+        <p id="speciesResultText"></p>
+    </div>
+
+    <div id="leafInput" class="container">
+        <h2>Classificação de Doença</h2>
+        <p>Carregue uma imagem da folha ou fruto para identificar a doença.</p>
         <img src="" id="previewLeaf" alt="Pré-visualização da Imagem da Folha" style="display: none;">
         <div id="dropzoneLeaf" tabindex="0">
             <p>Arraste e solte uma imagem da folha aqui ou clique para selecionar.</p>
             <input type="file" id="imageInputLeaf" accept="image/*">
         </div>
         <button id="removeLeaf" style="display: none">Remover Imagem</button>
-        <button id="classifyLeaf">Classificar Folha</button>
+        <button id="classifyLeaf">Classificar Doença</button>
     </div>
     
-    <div id="classificationOutput" class="container">
+    <div id="diseaseOutput" class="container">
         <h2>Resultado da Classificação:</h2>
         <!-- Image Classification Output Element -->
-        <p id="speciesResultText"></p>
         <p id="diseaseResultText"></p>
     </div>
 
