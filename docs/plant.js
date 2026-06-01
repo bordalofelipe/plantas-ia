@@ -3,6 +3,7 @@
 let plantModel;
 let selectedPlantFile = null;
 let plantLabels;
+let plantDescriptions;
 
 function onloadPlant() {
     console.log('Configurando interface de plantas...'); 
@@ -36,6 +37,7 @@ function onloadPlant() {
         }
     });
     loadPlantLabels();
+    loadPlantDescriptions();
 }
 
 async function loadPlantModel() {
@@ -97,6 +99,17 @@ async function loadPlantLabels() {
     }
 }
 
+async function loadPlantDescriptions() {
+    try {
+        const r = await fetch('species-descriptions.json');
+        plantDescriptions = await r.json();
+    }
+    catch (error) {
+        console.warn('Não foi possível carregar as descricoes das especies', error);
+        plantDescriptions = null;
+    }
+}
+
 async function classifyPlantImage(imageElement) {
     showLoading('Classificando...', 'Aguarde enquanto o modelo processa a imagem da planta e folha.');
     try {
@@ -123,17 +136,20 @@ async function classifyPlantImage(imageElement) {
         // Resultados da classificação
         const plantPrediction = predictions[0];
 
-        // Exibir resultados
-        let resultText = `Planta: ${plantPrediction.label} (Confiança: ${(plantPrediction.score * 100).toFixed(2)}%)\n`;
-
-        document.getElementById('speciesResultText').textContent = resultText;
-
-        // Exibir detalhes
-        document.getElementById('speciesResultText').innerHTML += '<details><summary>Details</summary><ul>';
-        for (pred of predictions) {
-            document.getElementById('speciesResultText').lastChild.innerHTML += '<li>' + pred.label + ' (' + (pred.score* 100).toFixed(2) + '%)';
+        // Exibir resultados com descrição (se disponível)
+        let html = `<strong>Planta:</strong> ${plantPrediction.label} (Confiança: ${(plantPrediction.score * 100).toFixed(2)}%)`;
+        if (plantDescriptions && plantDescriptions[plantPrediction.label]) {
+            html += `<p style="margin-top:8px;">${plantDescriptions[plantPrediction.label]}</p>`;
         }
-        document.getElementById('speciesResultText').lastChild.innerHTML += '</ul></details>';
+
+        // Detalhes das top previsões
+        html += '<details style="margin-top:8px;"><summary>Outras Previsões</summary><ul>';
+        for (pred of predictions) {
+            html += `<li><a onclick="showPlantDescription('${pred.label}')">${pred.label} (${(pred.score * 100).toFixed(2)}%)</a></li>`;
+        }
+        html += '</ul></details>';
+
+        document.getElementById('speciesResultText').innerHTML = html;
 
     } catch(error) {
         console.error('Erro na classificação:', error);
@@ -141,4 +157,21 @@ async function classifyPlantImage(imageElement) {
     } finally {
         hideLoading();
     }
+}
+
+function showPlantDescription(label) {
+    if (plantDescriptions && plantDescriptions[label]) {
+        document.getElementById('speciesTitle').textContent = label;
+        document.getElementById('speciesDescriptionText').textContent = plantDescriptions[label];
+        document.getElementById('speciesDescription').style.display = 'flex';
+    }
+    else {
+        document.getElementById('speciesTitle').textContent = label;
+        document.getElementById('speciesDescriptionText').textContent = 'Descrição não disponível';
+        document.getElementById('speciesDescription').style.display = 'flex';
+    }
+}
+
+function hidePlantDescription() {
+    document.getElementById('speciesDescription').style.display = 'none';
 }

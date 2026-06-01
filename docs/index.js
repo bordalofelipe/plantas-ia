@@ -3,7 +3,7 @@
 function showLoading(title = 'Aguarde...', text = 'Processando...') {
     document.getElementById('loadingTitle').textContent = title;
     document.getElementById('loadingText').textContent = text;
-    document.getElementById('loading').style.display = 'block';
+    document.getElementById('loading').style.display = 'flex';
 }
 
 function hideLoading() {

@@ -3,6 +3,7 @@
 let leafModel;
 let selectedLeafFile = null;
 let leafLabels;
+let diseaseDescriptions;
 
 function onloadLeaf() {
     console.log('Configurando interface de folhas...');
@@ -36,6 +37,7 @@ function onloadLeaf() {
         }
     });
     loadLeafLabels();
+    // loadDiseaseDescriptions();
 }
 
 async function loadLeafModel() {
@@ -97,6 +99,17 @@ async function loadLeafLabels() {
     }
 }
 
+async function loadDiseaseDescriptions() {
+    try {
+        const r = await fetch('disease-descriptions.json');
+        diseaseDescriptions = await r.json();
+    }
+    catch (error) {
+        console.error('Erro ao carregar as descrições de doenças:', error);
+        alert('Erro ao carregar as descrições de doenças.');
+    }
+}
+
 async function classifyLeafImage(imageElement) {
     showLoading('Classificando Folha...', 'Aguarde enquanto o modelo especializado processa a imagem da folha.');
     try {
@@ -121,19 +134,20 @@ async function classifyLeafImage(imageElement) {
         console.log('step5');
 
         // Exibir o resultado da folha específica
-        const topPrediction = predictions[0];
-        if (topPrediction.score < 0.5) {
+        const leafPrediction = predictions[0];
+
+        if (leafPrediction.score < 0.5) {
             document.getElementById('diseaseResultText').textContent = 'Nenhuma doença detectada. Provavelmente a planta está saudável.';
         } else {
-            document.getElementById('diseaseResultText').textContent =
-                `Doença: ${topPrediction.label} (Confiança: ${(topPrediction.score * 100).toFixed(2)}%)`;
+            let html = `<strong>Doença:</strong> ${leafPrediction.label} (Confiança: ${(leafPrediction.score * 100).toFixed(2)}%)`;
 
-            // Exibir detalhes
-            document.getElementById('diseaseResultText').innerHTML += '<details><summary>Details</summary><ul>';
+            // Detalhes das top previsões
+            html += '<details><summary>Outras Previsões</summary><ul>';
             for (pred of predictions) {
-                document.getElementById('diseaseResultText').lastChild.innerHTML += '<li>' + pred.label + ' (' + (pred.score* 100).toFixed(2) + '%)';
+                html += `<li><a onclick="showDiseaseDescription('${pred.label}')">${pred.label} (${(pred.score * 100).toFixed(2)}%)</a></li>`;
             }
-            document.getElementById('diseaseResultText').lastChild.innerHTML += '</ul></details>';
+            html += '</ul></details>';
+            document.getElementById('diseaseResultText').innerHTML = html;
         }
 
     } catch(error) {
@@ -142,4 +156,21 @@ async function classifyLeafImage(imageElement) {
     } finally {
         hideLoading();
     }
+}
+
+function showDiseaseDescription(label) {
+    if (diseaseDescriptions && diseaseDescriptions[label]) {
+        document.getElementById('diseaseTitle').textContent = label;
+        document.getElementById('diseaseDescriptionText').textContent = diseaseDescriptions[label];
+        document.getElementById('diseaseDescription').style.display = 'flex';
+    }
+    else {
+        document.getElementById('diseaseTitle').textContent = label;
+        document.getElementById('diseaseDescriptionText').textContent = 'Descrição não disponível';
+        document.getElementById('diseaseDescription').style.display = 'flex';
+    }
+}
+
+function hideDiseaseDescription() {
+    document.getElementById('diseaseDescription').style.display = 'none';
 }

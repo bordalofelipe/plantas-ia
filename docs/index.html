@@ -78,7 +78,7 @@
         #imageInputPlant, #imageInputLeaf {
             display: none;
         }
-        #loading {
+        #loading, #speciesDescription, #diseaseDescription {
             display: none;
             position: fixed;
             top: 0;
@@ -87,9 +87,10 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 9999;
-            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        #loading .modal-content {
+        #loading .modal-content, #speciesDescription .modal-content, #diseaseDescription .modal-content {
             background: white;
             border-radius: 8px;
             padding: 30px;
@@ -140,6 +141,14 @@
         <p id="speciesResultText"></p>
     </div>
 
+    <div id="speciesDescription">
+        <div class="modal-content">
+            <h2 id="speciesTitle">Carregando espécie...</h2>
+            <p id="speciesDescriptionText">Carregando descrição...</p>
+            <button onclick="hidePlantDescription()">Fechar</button>
+        </div>
+    </div>
+
     <div id="leafInput" class="container">
         <h2>Classificação de Doença</h2>
         <p>Carregue uma imagem da folha ou fruto para identificar a doença.</p>
@@ -156,6 +165,14 @@
         <h2>Resultado da Classificação:</h2>
         <!-- Image Classification Output Element -->
         <p id="diseaseResultText"></p>
+    </div>
+
+    <div id="diseaseDescription">
+        <div class="modal-content">
+            <h2 id="diseaseTitle">Carregando doença...</h2>
+            <p id="diseaseDescriptionText">Carregando descrição...</p>
+            <button onclick="hideDiseaseDescription()">Fechar</button>
+        </div>
     </div>
 
     <div id="loading">
