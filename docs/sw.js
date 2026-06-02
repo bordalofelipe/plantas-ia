@@ -13,7 +13,6 @@ const urlsToCache = [
   '/plantas-ia/species-descriptions.json',
   '/plantas-ia/diseases-categories.json',
   '/plantas-ia/diseases-descriptions.json',
-  '/plantas-ia/styles.css',
 ];
 
 // Instalação do Service Worker
