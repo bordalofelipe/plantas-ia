@@ -37,7 +37,7 @@ function onloadLeaf() {
         }
     });
     loadLeafLabels();
-    // loadDiseaseDescriptions();
+    loadDiseaseDescriptions();
 }
 
 async function loadLeafModel() {
@@ -101,7 +101,7 @@ async function loadLeafLabels() {
 
 async function loadDiseaseDescriptions() {
     try {
-        const r = await fetch('disease-descriptions.json');
+        const r = await fetch('diseases-descriptions.json');
         diseaseDescriptions = await r.json();
     }
     catch (error) {
@@ -136,11 +136,19 @@ async function classifyLeafImage(imageElement) {
         // Exibir o resultado da folha específica
         const leafPrediction = predictions[0];
 
-        if (leafPrediction.score < 0.5) {
+        if (leafPrediction.score < 0.4) {
             document.getElementById('diseaseResultText').textContent = 'Nenhuma doença detectada. Provavelmente a planta está saudável.';
+            console.log(predictions);
         } else {
             let html = `<strong>Doença:</strong> ${leafPrediction.label} (Confiança: ${(leafPrediction.score * 100).toFixed(2)}%)`;
-
+            if (diseaseDescriptions && diseaseDescriptions[leafPrediction.label]) {
+                html += `<p><strong>Descrição:</strong> ${diseaseDescriptions[leafPrediction.label].description}</p>`;
+                html += `<p><strong>Tratamento:</strong> ${diseaseDescriptions[leafPrediction.label].treatment}</p>`;
+                if (diseaseDescriptions[leafPrediction.label].pathogen) {
+                    html += `<p><strong>Patógeno:</strong> ${diseaseDescriptions[leafPrediction.label].pathogen}</p>`;
+                }
+                html += `<p><strong>Tipo:</strong> ${diseaseDescriptions[leafPrediction.label].type}</p>`;
+            }
             // Detalhes das top previsões
             html += '<details><summary>Outras Previsões</summary><ul>';
             for (pred of predictions) {
@@ -160,8 +168,15 @@ async function classifyLeafImage(imageElement) {
 
 function showDiseaseDescription(label) {
     if (diseaseDescriptions && diseaseDescriptions[label]) {
+        let html = '';
+        html += `<p><strong>Descrição:</strong> ${diseaseDescriptions[label].description}</p>`;
+        html += `<p><strong>Tratamento:</strong> ${diseaseDescriptions[label].treatment}</p>`;
+        if (diseaseDescriptions[label].pathogen) {
+            html += `<p><strong>Patógeno:</strong> ${diseaseDescriptions[label].pathogen}</p>`;
+        }
+        html += `<p><strong>Tipo:</strong> ${diseaseDescriptions[label].type}</p>`;
         document.getElementById('diseaseTitle').textContent = label;
-        document.getElementById('diseaseDescriptionText').textContent = diseaseDescriptions[label];
+        document.getElementById('diseaseDescriptionText').innerHTML = html;
         document.getElementById('diseaseDescription').style.display = 'flex';
     }
     else {

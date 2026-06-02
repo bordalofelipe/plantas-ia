@@ -1,0 +1,692 @@
+{
+    "apple black rot": {
+        "description": "A fungal disease that affects apple trees, causing black rot of fruits and branches.",
+        "pathogen": "Guignardia bidwellii",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "apple mosaic virus": {
+        "description": "A viral disease that causes mottled leaves in apple trees.",
+        "pathogen": "Apple mosaic virus",
+        "treatment": "There is no cure for viral diseases. Remove and destroy infected plants.",
+        "type": "viral"
+    },
+    "apple rust": {
+        "description": "A fungal disease that affects apple leaves and fruits, causing rust-colored spots.",
+        "pathogen": "Gymnoascus mali",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "apple scab": {
+        "description": "A fungal disease that causes dark, scabby lesions on apple leaves and fruits.",
+        "pathogen": "Venturia inaequalis",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "banana anthracnose": {
+        "description": "A fungal disease that affects banana plants, causing dark lesions on leaves and fruits.",
+        "pathogen": "Colletotrichum musae",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "banana black leaf streak": {
+        "description": "A fungal disease that causes black streaks on banana leaves.",
+        "pathogen": "Corynespora cassiicola",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "banana bunchy top": {
+        "description": "A viral disease that causes abnormal growth in banana plants.",
+        "pathogen": "Bunchy top virus",
+        "treatment": "There is no cure for viral diseases. Remove and destroy infected plants.",
+        "type": "viral"
+    },
+    "banana cigar end rot": {
+        "description": "A fungal disease that causes rot at the ends of banana fruits.",
+        "pathogen": "Colletotrichum musae",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "banana cordana leaf spot": {
+        "description": "A fungal disease that causes leaf spots on banana plants.",
+        "pathogen": "Cordana musae",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "banana panama disease": {
+        "description": "A fungal disease that causes wilting and death of banana plants.",
+        "pathogen": "Fusarium oxysporum f. sp. cubense",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "basil downy mildew": {
+        "description": "A fungal disease that affects basil plants, causing downy mildew on leaves.",
+        "pathogen": "Peronospora belbahrii",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "bean halo blight": {
+        "description": "A bacterial disease that causes halo-shaped lesions on bean leaves.",
+        "pathogen": "Pseudomonas syringae pv. phaseolicola",
+        "treatment": "Prune and destroy infected branches, apply bactericides during the growing season, and practice good sanitation.",
+        "type": "bacterial"
+    },
+    "bean mosaic virus": {
+        "description": "A viral disease that causes mottled leaves in bean plants.",
+        "pathogen": "Bean mosaic virus",
+        "treatment": "There is no cure for viral diseases. Remove and destroy infected plants.",
+        "type": "viral"
+    },
+    "bean rust": {
+        "description": "A fungal disease that causes rust-colored pustules on bean leaves.",
+        "pathogen": "Uromyces appendiculatus",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "bell pepper bacterial spot": {
+        "description": "A bacterial disease that causes spots on bell pepper leaves and fruits.",
+        "pathogen": "Xanthomonas campestris pv. vesicatoria",
+        "treatment": "Prune and destroy infected branches, apply bactericides during the growing season, and practice good sanitation.",
+        "type": "bacterial"
+    },
+    "bell pepper blossom end rot": {
+        "description": "A physiological disorder in bell peppers caused by calcium deficiency, leading to rot at the blossom end of the fruit.",
+        "pathogen": null,
+        "treatment": "Maintain consistent soil moisture and ensure adequate calcium levels in the soil.",
+        "type": "physiological disorder"
+    },
+    "bell pepper frogeye leaf spot": {
+        "description": "A fungal disease that causes circular spots with dark borders on bell pepper leaves.",
+        "pathogen": "Cercospora capsici",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "bell pepper powdery mildew": {
+        "description": "A fungal disease that causes white, powdery growth on bell pepper leaves.",
+        "pathogen": "Leveillula taurica",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "blueberry anthracnose": {
+        "description": "A fungal disease that causes dark lesions on blueberry plants, leading to fruit rot.",
+        "pathogen": "Colletotrichum acutatum",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "blueberry botrytis blight": {
+        "description": "A fungal disease that causes gray mold on blueberry fruits.",
+        "pathogen": "Botrytis cinerea",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "blueberry mummy berry": {
+        "description": "A fungal disease that causes mummy berries on blueberry plants.",
+        "pathogen": "Monilinia fructicola",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "blueberry rust": {
+        "description": "A fungal disease that causes rust-colored spots on blueberry leaves.",
+        "pathogen": "Pucciniastrum myrtilli",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "blueberry scorch": {
+        "description": "A physiological disorder in blueberries caused by water stress, leading to leaf scorching.",
+        "pathogen": null,
+        "treatment": "Maintain consistent soil moisture and ensure adequate calcium levels in the soil.",
+        "type": "physiological disorder"
+    },
+    "broccoli alternaria leaf spot": {
+        "description": "A fungal disease that causes leaf spots on broccoli plants.",
+        "pathogen": "Alternaria brassicae",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "broccoli downy mildew": {
+        "description": "A fungal disease that causes downy mildew on broccoli leaves.",
+        "pathogen": "Peronospora parasitica",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "broccoli ring spot": {
+        "description": "A fungal disease that causes ring-shaped spots on broccoli leaves.",
+        "pathogen": "Sphaceloma cruciferarum",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "cabbage alternaria leaf spot": {
+        "description": "A fungal disease that causes leaf spots on cabbage plants.",
+        "pathogen": "Alternaria brassicae",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "cabbage black rot": {
+        "description": "A bacterial disease that causes black rot in cabbage plants.",
+        "pathogen": "Xanthomonas campestris pv. campestris",
+        "treatment": "Prune and destroy infected branches, apply bactericides during the growing season, and practice good sanitation.",
+        "type": "bacterial"
+    },
+    "cabbage downy mildew": {
+        "description": "A fungal disease that causes downy mildew on cabbage leaves.",
+        "pathogen": "Peronospora parasitica",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "carrot alternaria leaf blight": {
+        "description": "A fungal disease that causes leaf blight on carrot plants.",
+        "pathogen": "Alternaria dauci",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "carrot cavity spot": {
+        "description": "A physiological disorder in carrots caused by calcium deficiency, leading to cavities in the roots.",
+        "pathogen": null,
+        "treatment": "Maintain adequate calcium levels in the soil and ensure consistent soil moisture.",
+        "type": "physiological disorder"
+    },
+    "carrot cercospora leaf blight": {
+        "description": "A fungal disease that causes leaf blight on carrot plants.",
+        "pathogen": "Cercospora carotae",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "cauliflower alternaria leaf spot": {
+        "description": "A fungal disease that causes leaf spots on cauliflower plants.",
+        "pathogen": "Alternaria brassicae",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "cauliflower bacterial soft rot": {
+        "description": "A bacterial disease that causes soft rot in cauliflower plants.",
+        "pathogen": "Pseudomonas syringae pv. maculicola",
+        "treatment": "Prune and destroy infected branches, apply bactericides during the growing season, and practice good sanitation.",
+        "type": "bacterial"
+    },
+    "celery anthracnose": {
+        "description": "A fungal disease that causes anthracnose on celery plants.",
+        "pathogen": "Colletotrichum gloeosporioides",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "celery early blight": {
+        "description": "A fungal disease that causes early blight on celery plants.",
+        "pathogen": "Alternaria solani",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "cherry leaf spot": {
+        "description": "A fungal disease that causes leaf spots on cherry trees.",
+        "pathogen": "Blumeria graminis",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "cherry powdery mildew": {
+        "description": "A fungal disease that causes powdery mildew on cherry trees.",
+        "pathogen": "Podosphaera leucotricha",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "citrus canker": {
+        "description": "A bacterial disease that causes canker on citrus trees.",
+        "pathogen": "Candidatus Liberibacter asiaticus",
+        "treatment": "Prune and destroy infected branches, apply bactericides during the growing season, and practice good sanitation.",
+        "type": "bacterial"
+    },
+    "citrus greening disease": {
+        "description": "A bacterial disease that causes greening of citrus fruits.",
+        "pathogen": "Candidatus Liberibacter asiaticus",
+        "treatment": "Prune and destroy infected branches, apply bactericides during the growing season, and practice good sanitation.",
+        "type": "bacterial"
+    },
+    "coffee berry blotch": {
+        "description": "A fungal disease that causes blotches on coffee berries.",
+        "pathogen": "Ceratocystis fimbriata",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "coffee black rot": {
+        "description": "A fungal disease that causes black rot on coffee plants.",
+        "pathogen": "Ceratocystis fimbriata",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "coffee brown eye spot": {
+        "description": "A fungal disease that causes brown eye spots on coffee leaves.",
+        "pathogen": "Ceratocystis fimbriata",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "coffee leaf rust": {
+        "description": "A fungal disease that causes leaf rust on coffee plants.",
+        "pathogen": "Hemileia vastatrix",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "corn gray leaf spot": {
+        "description": "A fungal disease that causes gray leaf spot on corn plants.",
+        "pathogen": "Cercospora zeae-maydis",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "corn northern leaf blight": {
+        "description": "A fungal disease that causes northern leaf blight on corn plants.",
+        "pathogen": "Setosphaeria turcica",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "corn rust": {
+        "description": "A fungal disease that causes rust on corn plants.",
+        "pathogen": "Puccinia maydis",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "corn smut": {
+        "description": "A fungal disease that causes smut on corn plants.",
+        "pathogen": "Ustilago maydis",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "cucumber angular leaf spot": {
+        "description": "A fungal disease that causes angular leaf spots on cucumber plants.",
+        "pathogen": "Xanthomonas campestris pv. citri",
+        "treatment": "Prune and destroy infected branches, apply bactericides during the growing season, and practice good sanitation.",
+        "type": "bacterial"
+    },
+    "cucumber bacterial wilt": {
+        "description": "A bacterial disease that causes bacterial wilt on cucumber plants.",
+        "pathogen": "Caulobacter michiganensis",
+        "treatment": "Prune and destroy infected branches, apply bactericides during the growing season, and practice good sanitation.",
+        "type": "bacterial"
+    },
+    "cucumber powdery mildew": {
+        "description": "A fungal disease that causes powdery mildew on cucumber plants.",
+        "pathogen": "Podosphaera leucotricha",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "eggplant cercospora leaf spot": {
+        "description": "A fungal disease that causes cercospora leaf spot on eggplant plants.",
+        "pathogen": "Cercospora kikuchii",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "eggplant phomopsis fruit rot": {
+        "description": "A fungal disease that causes phomopsis fruit rot on eggplant plants.",
+        "pathogen": "Phomopsis viticola",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "eggplant phytophthora blight": {
+        "description": "A fungal disease that causes phytophthora blight on eggplant plants.",
+        "pathogen": "Phytophthora infestans",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "garlic leaf blight": {
+        "description": "A fungal disease that causes leaf blight on garlic plants.",
+        "pathogen": "Alternaria porri",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "garlic rust": {
+        "description": "A fungal disease that causes rust on garlic plants.",
+        "pathogen": "Puccinia allii",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "ginger leaf spot": {
+        "description": "A fungal disease that causes leaf spot on ginger plants.",
+        "pathogen": "Colletotrichum gloeosporioides",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "ginger sheath blight": {
+        "description": "A fungal disease that causes sheath blight on ginger plants.",
+        "pathogen": "Rhizoctonia solani",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "grape black rot": {
+        "description": "A fungal disease that causes black rot on grape plants.",
+        "pathogen": "Guignardia bidwellii",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "grape downy mildew": {
+        "description": "A fungal disease that causes downy mildew on grape plants.",
+        "pathogen": "Plasmopara viticola",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "grape leaf spot": {
+        "description": "A fungal disease that causes leaf spot on grape plants.",
+        "pathogen": "Elsinoe ampelina",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "grapevine leafroll disease": {
+        "description": "A fungal disease that causes leafroll disease on grapevine plants.",
+        "pathogen": "Grapevine leafroll-associated viruses",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "lettuce downy mildew": {
+        "description": "A fungal disease that causes downy mildew on lettuce plants.",
+        "pathogen": "Peronospora lactucae",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "lettuce mosaic virus": {
+        "description": "A viral disease that causes mosaic symptoms on lettuce plants.",
+        "pathogen": "Lettuce mosaic virus",
+        "treatment": "Remove and destroy infected plants, control aphid populations, and use virus-free seeds.",
+        "type": "viral"
+    },
+    "maple tar spot": {
+        "description": "A fungal disease that causes tar spot on maple plants.",
+        "pathogen": "Rhytisma americanum",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "peach anthracnose": {
+        "description": "A fungal disease that causes anthracnose on peach plants.",
+        "pathogen": "Colletotrichum gloeosporioides",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "peach brown rot": {
+        "description": "A fungal disease that causes brown rot on peach plants.",
+        "pathogen": "Botryosphaeria dothidea",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "peach leaf curl": {
+        "description": "A fungal disease that causes leaf curl on peach plants.",
+        "pathogen": "Taphrina deformans",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "peach rust": {
+        "description": "A fungal disease that causes rust on peach plants.",
+        "pathogen": "Puccinia rehmii",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "peach scab": {
+        "description": "A fungal disease that causes scab on peach plants.",
+        "pathogen": "Venturia pirina",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "plum bacterial spot": {
+        "description": "A bacterial disease that causes bacterial spot on plum plants.",
+        "pathogen": "Xanthomonas pruni",
+        "treatment": "Prune and destroy infected branches, apply bactericides during the growing season, and practice good sanitation.",
+        "type": "bacterial"
+    },
+    "plum brown rot": {
+        "description": "A fungal disease that causes brown rot on plum plants.",
+        "pathogen": "Botryosphaeria dothidea",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "plum pocket disease": {
+        "description": "A fungal disease that causes pocket disease on plum plants.",
+        "pathogen": "Cytospora chrysosperma",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "plum pox virus": {
+        "description": "A viral disease that causes pox symptoms on plum plants.",
+        "pathogen": "Plum pox virus",
+        "treatment": "Remove and destroy infected plants, control aphid populations, and use virus-free seeds.",
+        "type": "viral"
+    },
+    "plum rust": {
+        "description": "A fungal disease that causes rust on plum plants.",
+        "pathogen": "Puccinia rehmii",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "potato early blight": {
+        "description": "A fungal disease that causes early blight on potato plants.",
+        "pathogen": "Alternaria solani",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "potato late blight": {
+        "description": "A fungal disease that causes late blight on potato plants.",
+        "pathogen": "Phytophthora infestans",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "raspberry fire blight": {
+        "description": "A bacterial disease that causes fire blight on raspberry plants.",
+        "pathogen": "Erwinia amylovora",
+        "treatment": "Prune and destroy infected branches, apply bactericides during the growing season, and practice good sanitation.",
+        "type": "bacterial"
+    },
+    "raspberry gray mold": {
+        "description": "A fungal disease that causes gray mold on raspberry plants.",
+        "pathogen": "Botrytis cinerea",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "raspberry leaf spot": {
+        "description": "A fungal disease that causes leaf spot on raspberry plants.",
+        "pathogen": "Dothideomycetes",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "raspberry yellow rust": {
+        "description": "A fungal disease that causes yellow rust on raspberry plants.",
+        "pathogen": "Puccinia ribis-juniperi",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "rice blast": {
+        "description": "A fungal disease that causes blast on rice plants.",
+        "pathogen": "Magnaporthe oryzae",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "rice sheath blight": {
+        "description": "A fungal disease that causes sheath blight on rice plants.",
+        "pathogen": "Rhizoctonia solani",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "soybean bacterial blight": {
+        "description": "A bacterial disease that causes bacterial blight on soybean plants.",
+        "pathogen": "Pseudomonas syringae",
+        "treatment": "Prune and destroy infected branches, apply bactericides during the growing season, and practice good sanitation.",
+        "type": "bacterial"
+    },
+    "soybean brown spot": {
+        "description": "A fungal disease that causes brown spot on soybean plants.",
+        "pathogen": "Cercospora kikuchii",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "soybean downy mildew": {
+        "description": "A fungal disease that causes downy mildew on soybean plants.",
+        "pathogen": "Pseudoperonospora cubensis",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "soybean frog eye leaf spot": {
+        "description": "A fungal disease that causes frog eye leaf spot on soybean plants.",
+        "pathogen": "Cercospora kikuchii",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "soybean mosaic": {
+        "description": "A viral disease that causes mosaic patterns on soybean plants.",
+        "pathogen": "Soybean mosaic virus",
+        "treatment": "Prune and destroy infected branches, apply viricides during the growing season, and practice good sanitation.",
+        "type": "viral"
+    },
+    "soybean rust": {
+        "description": "A fungal disease that causes rust on soybean plants.",
+        "pathogen": "Puccinia graminis",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "squash powdery mildew": {
+        "description": "A fungal disease that causes powdery mildew on squash plants.",
+        "pathogen": "Erysiphe cichoracearum",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "strawberry anthracnose": {
+        "description": "A fungal disease that causes anthracnose on strawberry plants.",
+        "pathogen": "Colletotrichum acutatum",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "strawberry leaf scorch": {
+        "description": "A fungal disease that causes leaf scorch on strawberry plants.",
+        "pathogen": "Didymella destructor",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "tobacco blue mold": {
+        "description": "A fungal disease that causes blue mold on tobacco plants.",
+        "pathogen": "Penicillium italicum",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "tobacco brown spot": {
+        "description": "A fungal disease that causes brown spot on tobacco plants.",
+        "pathogen": "Cercospora kikuchii",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "tobacco frogeye leaf spot": {
+        "description": "A fungal disease that causes frogeye leaf spot on tobacco plants.",
+        "pathogen": "Cercospora kikuchii",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "tobacco mosaic virus": {
+        "description": "A viral disease that causes mosaic patterns on tobacco plants.",
+        "pathogen": "Tobacco mosaic virus",
+        "treatment": "Prune and destroy infected branches, apply viricides during the growing season, and practice good sanitation.",
+        "type": "viral"
+    },
+    "tomato bacterial leaf spot": {
+        "description": "A bacterial disease that causes leaf spot on tomato plants.",
+        "pathogen": "Pseudomonas syringae",
+        "treatment": "Prune and destroy infected branches, apply bactericides during the growing season, and practice good sanitation.",
+        "type": "bacterial"
+    },
+    "tomato early blight": {
+        "description": "A fungal disease that causes early blight on tomato plants.",
+        "pathogen": "Alternaria solani",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "tomato late blight": {
+        "description": "A fungal disease that causes late blight on tomato plants.",
+        "pathogen": "Phytophthora infestans",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "tomato leaf mold": {
+        "description": "A fungal disease that causes leaf mold on tomato plants.",
+        "pathogen": "Passalora fulva",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "tomato mosaic virus": {
+        "description": "A viral disease that causes mosaic patterns on tomato plants.",
+        "pathogen": "Tomato mosaic virus",
+        "treatment": "Prune and destroy infected branches, apply viricides during the growing season, and practice good sanitation.",
+        "type": "viral"
+    },
+    "tomato septoria leaf spot": {
+        "description": "A fungal disease that causes septoria leaf spot on tomato plants.",
+        "pathogen": "Septoria lycopersici",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "tomato yellow leaf curl virus": {
+        "description": "A viral disease that causes yellow leaf curl on tomato plants.",
+        "pathogen": "Tomato yellow leaf curl virus",
+        "treatment": "Prune and destroy infected branches, apply viricides during the growing season, and practice good sanitation.",
+        "type": "viral"
+    },
+    "wheat bacterial leaf streak (black chaff)": {
+        "description": "A bacterial disease that causes leaf streak on wheat plants.",
+        "pathogen": "Pseudomonas syringae pv. graminis",
+        "treatment": "Prune and destroy infected branches, apply bactericides during the growing season, and practice good sanitation.",
+        "type": "bacterial"
+    },
+    "wheat head scab": {
+        "description": "A fungal disease that causes head scab on wheat plants.",
+        "pathogen": "Gibberella zeae",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "wheat leaf rust": {
+        "description": "A fungal disease that causes leaf rust on wheat plants.",
+        "pathogen": "Puccinia graminis",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "wheat loose smut": {
+        "description": "A fungal disease that causes loose smut on wheat plants.",
+        "pathogen": "Ustilago tritici",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "wheat powdery mildew": {
+        "description": "A fungal disease that causes powdery mildew on wheat plants.",
+        "pathogen": "Blumeria graminis",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "wheat septoria blotch": {
+        "description": "A fungal disease that causes septoria blotch on wheat plants.",
+        "pathogen": "Septoria lycopersici",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "wheat stem rust": {
+        "description": "A fungal disease that causes stem rust on wheat plants.",
+        "pathogen": "Puccinia graminis",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "wheat stripe rust": {
+        "description": "A fungal disease that causes stripe rust on wheat plants.",
+        "pathogen": "Puccinia striiformis",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "zucchini bacterial wilt": {
+        "description": "A bacterial disease that causes bacterial wilt on zucchini plants.",
+        "pathogen": "Erwinia spp.",
+        "treatment": "Prune and destroy infected branches, apply bactericides during the growing season, and practice good sanitation.",
+        "type": "bacterial"
+    },
+    "zucchini downy mildew": {
+        "description": "A fungal disease that causes downy mildew on zucchini plants.",
+        "pathogen": "Pseudoperonospora cubensis",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "zucchini powdery mildew": {
+        "description": "A fungal disease that causes powdery mildew on zucchini plants.",
+        "pathogen": "Blumeria graminis",
+        "treatment": "Prune and destroy infected branches, apply fungicides during the growing season, and practice good sanitation.",
+        "type": "fungal"
+    },
+    "zucchini yellow mosaic virus": {
+        "description": "A viral disease that causes yellow mosaic virus on zucchini plants.",
+        "pathogen": "Zucchini yellow mosaic virus",
+        "treatment": "Prune and destroy infected branches, apply viricides during the growing season, and practice good sanitation.",
+        "type": "viral"
+    }
+}
