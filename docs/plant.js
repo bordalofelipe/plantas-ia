@@ -139,7 +139,9 @@ async function classifyPlantImage(imageElement) {
         // Exibir resultados com descrição (se disponível)
         let html = `<strong>Planta:</strong> ${plantPrediction.label} (Confiança: ${(plantPrediction.score * 100).toFixed(2)}%)`;
         if (plantDescriptions && plantDescriptions[plantPrediction.label]) {
-            html += `<p style="margin-top:8px;">${plantDescriptions[plantPrediction.label]}</p>`;
+            html += `<p><strong>Descrição:</strong> ${plantDescriptions[plantPrediction.label].description}</p>`;
+            html += `<p><strong>Fonte:</strong> ${plantDescriptions[plantPrediction.label].source}</p>`;
+            html += `<p><a href="${plantDescriptions[plantPrediction.label].inaturalist}" target="_blank">Ver no iNaturalist</a></p>`;
         }
 
         // Detalhes das top previsões
@@ -161,8 +163,14 @@ async function classifyPlantImage(imageElement) {
 
 function showPlantDescription(label) {
     if (plantDescriptions && plantDescriptions[label]) {
+        let html = '';
+        if (plantDescriptions && plantDescriptions[label]) {
+            html += `<p><strong>Descrição:</strong> ${plantDescriptions[label].description}</p>`;
+            html += `<p><strong>Fonte:</strong> ${plantDescriptions[label].source}</p>`;
+            html += `<p><a href="${plantDescriptions[label].inaturalist}" target="_blank">Ver no iNaturalist</a></p>`;
+        }
         document.getElementById('speciesTitle').textContent = label;
-        document.getElementById('speciesDescriptionText').textContent = plantDescriptions[label];
+        document.getElementById('speciesDescriptionText').innerHTML = html;
         document.getElementById('speciesDescription').style.display = 'flex';
     }
     else {
