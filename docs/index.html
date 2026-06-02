@@ -92,18 +92,20 @@
             padding-top: 40px;
             box-sizing: border-box;
         }
-        #loading .modal-content, #speciesDescription .modal-content, #diseaseDescription .modal-content {
+        .modal-content {
             background: white;
             border-radius: 8px;
             padding: 30px;
             text-align: center;
             margin: 10px auto;
-            max-width: 300px;
             width: 90%;
             max-height: calc(100% - 80px);
             overflow: auto;
         }
-        #loading .spinner {
+        #loading .modal-content {
+            width: 300px;
+        }
+        .spinner {
             width: 50px;
             height: 50px;
             margin: 0 auto 20px;
@@ -117,7 +119,7 @@
             to { transform: rotate(360deg); }
         }
         @media (max-width: 768px) {
-            .container {
+            .container, .modal-content {
                 width: 100%;
             }
         }
