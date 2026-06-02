@@ -88,7 +88,9 @@
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 9999;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
+            padding-top: 40px;
+            box-sizing: border-box;
         }
         #loading .modal-content, #speciesDescription .modal-content, #diseaseDescription .modal-content {
             background: white;
@@ -98,6 +100,8 @@
             margin: 10px auto;
             max-width: 300px;
             width: 90%;
+            max-height: calc(100% - 80px);
+            overflow: auto;
         }
         #loading .spinner {
             width: 50px;
