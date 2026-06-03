@@ -1,5 +1,12 @@
 // index.js - Utilitários compartilhados
 
+const imageErrorPlaceholder = 'data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280"%3E%3Crect width="400" height="280" fill="%23f2f2f2"/%3E%3Ctext x="200" y="140" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" fill="%23999"%3ENão foi possível carregar a foto%3C/text%3E%3C/svg%3E';
+function showPlaceholder(imgElement) {
+    imgElement.src = imageErrorPlaceholder;
+    imgElement.alt = 'Não foi possível carregar a foto';
+    imgElement.style.width = '280px';
+}
+
 function showLoading(title = 'Aguarde...', text = 'Processando...') {
     document.getElementById('loadingTitle').textContent = title;
     document.getElementById('loadingText').textContent = text;

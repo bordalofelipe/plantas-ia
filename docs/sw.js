@@ -11,6 +11,7 @@ const urlsToCache = [
   '/plantas-ia/plant-disease.onnx',
   '/plantas-ia/species-categories.json',
   '/plantas-ia/species-descriptions.json',
+  '/plantas-ia/species-photos.json',
   '/plantas-ia/diseases-categories.json',
   '/plantas-ia/diseases-descriptions.json',
 ];

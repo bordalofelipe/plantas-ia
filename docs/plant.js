@@ -21,7 +21,7 @@ function onloadPlant() {
                 hideLoading();
             };
             img.onerror = function() {
-                document.getElementById('speciesResultText').textContent = 'Erro ao carregar a imagem.';
+                showPlaceholder(img);
                 hideLoading();
             };
             
@@ -38,6 +38,7 @@ function onloadPlant() {
     });
     loadPlantLabels();
     loadPlantDescriptions();
+    loadPlantPhotos();
 }
 
 async function loadPlantModel() {
@@ -110,6 +111,17 @@ async function loadPlantDescriptions() {
     }
 }
 
+async function loadPlantPhotos() {
+    try {
+        const r = await fetch('species-photos.json');
+        plantPhotos = await r.json();
+    }
+    catch (error) {
+        console.warn('Não foi possível carregar as fotos das especies', error);
+        plantPhotos = null;
+    }
+}
+
 async function classifyPlantImage(imageElement) {
     showLoading('Classificando...', 'Aguarde enquanto o modelo processa a imagem da planta e folha.');
     try {
@@ -138,6 +150,14 @@ async function classifyPlantImage(imageElement) {
 
         // Exibir resultados com descrição (se disponível)
         let html = `<strong>Planta:</strong> ${plantPrediction.label} (Confiança: ${(plantPrediction.score * 100).toFixed(2)}%)`;
+        // Exibir fotos da planta
+        if (plantPhotos && plantPhotos[plantPrediction.label]) {
+            html += `<p><strong>Fotos:</strong></p><div class="image-preview">`;
+            for (photo of plantPhotos[plantPrediction.label]) {
+                html += `<img src="${photo}" alt="${plantPrediction.label}" loading="lazy" decoding="async" onerror="showPlaceholder(this)">`;
+            }
+            html += `</div>`;
+        }
         if (plantDescriptions && plantDescriptions[plantPrediction.label]) {
             html += `<p><strong>Descrição:</strong> ${plantDescriptions[plantPrediction.label].description}</p>`;
             html += `<p><strong>Fonte:</strong> ${plantDescriptions[plantPrediction.label].source}</p>`;
@@ -164,6 +184,14 @@ async function classifyPlantImage(imageElement) {
 function showPlantDescription(label) {
     if (plantDescriptions && plantDescriptions[label]) {
         let html = '';
+        // Exibir fotos da planta
+        if (plantPhotos && plantPhotos[label]) {
+            html += `<p><strong>Fotos:</strong></p><div class="image-preview">`;
+            for (photo of plantPhotos[label]) {
+                html += `<img src="${photo}" alt="${label}" loading="lazy" decoding="async" onerror="showPlaceholder(this)">`;
+            }
+            html += `</div>`;
+        }
         if (plantDescriptions && plantDescriptions[label]) {
             html += `<p><strong>Descrição:</strong> ${plantDescriptions[label].description}</p>`;
             html += `<p><strong>Fonte:</strong> ${plantDescriptions[label].source}</p>`;

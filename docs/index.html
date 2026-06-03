@@ -40,6 +40,30 @@
             margin-bottom: 20px;
             text-align: center;
         }
+        .image-preview {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            max-width: 100%;
+            max-height: 320px;
+            margin: 10px auto;
+            padding-bottom: 10px;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        .image-preview img {
+            flex: 0 0 auto;
+            min-width: 280px;
+            max-width: 320px; 
+            height: 280px;
+            border-radius: 6px;
+            scroll-snap-align: center;
+            object-fit: cover;
+            background-color: #f5f5f5;
+            transition: transform 0.2s ease;
+        }
         #classifyPlant, #classifyLeaf {
             margin-top: 10px;
         }
