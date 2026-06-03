@@ -136,7 +136,7 @@ async function classifyLeafImage(imageElement) {
         // Exibir o resultado da folha específica
         const leafPrediction = predictions[0];
 
-        if (leafPrediction.score < 0.4) {
+        if (leafPrediction.score < 0.3) {
             document.getElementById('diseaseResultText').textContent = 'Nenhuma doença detectada. Provavelmente a planta está saudável.';
             console.log(predictions);
         } else {
