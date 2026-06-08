@@ -159,6 +159,8 @@ async function classifyPlantImage(imageElement) {
             html += `</div>`;
         }
         if (plantDescriptions && plantDescriptions[plantPrediction.label]) {
+            html += `<p><strong>Toxicidade:</strong> ${plantDescriptions[plantPrediction.label].Toxicidade}</p>`;
+            html += `<p><strong>Comestividade:</strong> ${plantDescriptions[plantPrediction.label].Comestividade}</p>`;
             html += `<p><strong>Descrição:</strong> ${plantDescriptions[plantPrediction.label].description}</p>`;
             html += `<p><strong>Fonte:</strong> ${plantDescriptions[plantPrediction.label].source}</p>`;
             html += `<p><a href="${plantDescriptions[plantPrediction.label].inaturalist}" target="_blank">Ver no iNaturalist</a></p>`;
@@ -193,6 +195,8 @@ function showPlantDescription(label) {
             html += `</div>`;
         }
         if (plantDescriptions && plantDescriptions[label]) {
+            html += `<p><strong>Toxicidade:</strong> ${plantDescriptions[label].Toxicidade}</p>`;
+            html += `<p><strong>Comestividade:</strong> ${plantDescriptions[label].Comestividade}</p>`;
             html += `<p><strong>Descrição:</strong> ${plantDescriptions[label].description}</p>`;
             html += `<p><strong>Fonte:</strong> ${plantDescriptions[label].source}</p>`;
             html += `<p><a href="${plantDescriptions[label].inaturalist}" target="_blank">Ver no iNaturalist</a></p>`;
