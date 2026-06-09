@@ -4,6 +4,7 @@ let plantModel;
 let selectedPlantFile = null;
 let plantLabels;
 let plantDescriptions;
+const plantDisclaimer = 'Lembre-se que o modelo pode errar. A espécie que você observou pode não ser a que o modelo indicou. Para sua segurança, evite contato com plantas e fungos desconhecidos. Os desenvolvedores não se responsabilizam por incidentes envolvendo intoxicações por plantas e/ou fungos.';
 
 function onloadPlant() {
     console.log('Configurando interface de plantas...'); 
@@ -165,6 +166,7 @@ async function classifyPlantImage(imageElement) {
             html += `<p><strong>Fonte:</strong> ${plantDescriptions[plantPrediction.label].source}</p>`;
             html += `<p><a href="${plantDescriptions[plantPrediction.label].inaturalist}" target="_blank">Ver no iNaturalist</a></p>`;
         }
+        html += `<p><strong>${plantDisclaimer}</strong></p>`;
 
         // Detalhes das top previsões
         html += '<details style="margin-top:8px;"><summary>Outras Previsões</summary><ul>';
@@ -201,6 +203,7 @@ function showPlantDescription(label) {
             html += `<p><strong>Fonte:</strong> ${plantDescriptions[label].source}</p>`;
             html += `<p><a href="${plantDescriptions[label].inaturalist}" target="_blank">Ver no iNaturalist</a></p>`;
         }
+        html += `<p><strong>${plantDisclaimer}</strong></p>`;
         document.getElementById('speciesTitle').textContent = label;
         document.getElementById('speciesDescriptionText').innerHTML = html;
         document.getElementById('speciesDescription').style.display = 'flex';

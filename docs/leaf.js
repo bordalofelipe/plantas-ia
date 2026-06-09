@@ -4,6 +4,7 @@ let leafModel;
 let selectedLeafFile = null;
 let leafLabels;
 let diseaseDescriptions;
+const leafDisclaimer = 'Lembre-se que o modelo pode errar. A doença da planta que você observou pode não ser a que o modelo indicou. Use as informações aqui como um guia, mas sempre verifique com um especialista ou fonte confiável antes de tomar decisões baseadas nessa classificação. Os desenvolvedores não se responsabilizam por incidentes envolvendo doenças de plantas.';
 
 function onloadLeaf() {
     console.log('Configurando interface de folhas...');
@@ -137,7 +138,9 @@ async function classifyLeafImage(imageElement) {
         const leafPrediction = predictions[0];
 
         if (leafPrediction.score < 0.3) {
-            document.getElementById('diseaseResultText').textContent = 'Nenhuma doença detectada. Provavelmente a planta está saudável.';
+            let html = `<p>O modelo não tem confiança suficiente para identificar uma doença específica. A planta pode estar saudável ou a imagem pode não ser clara o suficiente para um diagnóstico preciso.</p>`;
+            html += `<p><strong>${leafDisclaimer}</strong></p>`;
+            document.getElementById('diseaseResultText').innerHTML = html;
             console.log(predictions);
         } else {
             let html = `<strong>Doença:</strong> ${leafPrediction.label} (Confiança: ${(leafPrediction.score * 100).toFixed(2)}%)`;
@@ -149,6 +152,7 @@ async function classifyLeafImage(imageElement) {
                 }
                 html += `<p><strong>Tipo:</strong> ${diseaseDescriptions[leafPrediction.label].type}</p>`;
             }
+            html += `<p><strong>${leafDisclaimer}</strong></p>`;
             // Detalhes das top previsões
             html += '<details><summary>Outras Previsões</summary><ul>';
             for (pred of predictions) {
@@ -175,6 +179,7 @@ function showDiseaseDescription(label) {
             html += `<p><strong>Patógeno:</strong> ${diseaseDescriptions[label].pathogen}</p>`;
         }
         html += `<p><strong>Tipo:</strong> ${diseaseDescriptions[label].type}</p>`;
+        html += `<p><strong>${leafDisclaimer}</strong></p>`;
         document.getElementById('diseaseTitle').textContent = label;
         document.getElementById('diseaseDescriptionText').innerHTML = html;
         document.getElementById('diseaseDescription').style.display = 'flex';
